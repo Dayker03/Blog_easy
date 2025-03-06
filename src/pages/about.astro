@@ -1,24 +1,46 @@
 ---
+import { map } from 'astro:schema';
+import { SITE_TITLE } from '../consts';
 import Layout from '../layouts/BlogPost.astro';
+const pageTitle = "SOBRE MI";
+
+const identity = {
+	firstName: "Franchesco",
+	country: "Venezuela",
+	occupation: "Programador tecnico",
+	hobbies: ["fotografia", "observacion de documentos", "peñarol"],
+};
+
+const skills = ["HTML", "CSS", "Javascript", "React", "Astro", "Redaccion dse documentos"];
+
+const happy = true;
+const finished = false;
+const goal = 3;
 ---
-<html lang="es">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width" />
-    <title>Astro</title>
-  </head>
+
 <Layout
-	title="About Me"
+	title={`${SITE_TITLE} | ${pageTitle}`}
 	description="Lorem ipsum dolor sit amet"
 	pubDate={new Date('August 08 2021')}
 	heroImage="/blog-placeholder-about.jpg"
 >
-<body>
-	<a href="/">Inicio</a>
-	<a href="/about/">Sobre mi</a>
-	<a href="/blog/">Blog</a>
-	<h1>Sobre mi</h1>
-	<h2>Nuevo sitio Astro!</h2>
+<main>
+	
+	<p>He aqui algunos datos sobre mi:</p>
+	<ul>
+		<li>Me llamo {identity.firstName}.</li>
+		<li>Vivo en {identity.country} y trabajo como {identity.occupation}.</li>
+		{identity.hobbies.length >= 2 &&
+		<li>Dos de mis aficiones son: {identity.hobbies[0]} y {identity.hobbies[1]}</li>
+		}
+	</ul>
+	<p>Mis habilidades son:</p>
+	<ul>
+		{skills.map((skill) => <li>{skill}</li>)}
+	</ul>
+	<h1>{pageTitle}</h1>
+	
+	<h2>..... ¡Nuevo sitio Astro!</h2>
 
 	<p>Estoy trabajando en el tutorial introductorio de Astro. Esta es la segunda página de mi sitio web, ¡y es la primera que he construido yo mismo!</p>
 
@@ -34,5 +56,10 @@ import Layout from '../layouts/BlogPost.astro';
 		vestibulum lorem. Varius sit amet mattis vulputate enim. Habitasse platea dictumst quisque
 		sagittis. Integer quis auctor elit sed vulputate mi. Dictumst quisque sagittis purus sit amet.
 	</p>
-</body>
+
+	{happy && <p>¡Estoy feliz de aprender Astro!</p>}
+	{finished && <p>¡He terminado este tutorial!</p>}
+	{goal === 3 ? <p>Mi objetivo es terminar en 3 días.</p> : <p>Mi objetivo no son 3 días.</p>}
+
+</main>
 </Layout>
