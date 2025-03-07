@@ -16,6 +16,10 @@ const skills = ["HTML", "CSS", "Javascript", "React", "Astro", "Redaccion dse do
 const happy = true;
 const finished = false;
 const goal = 3;
+
+const skillColor = "navy";
+const fontWeight = "bold"
+const textCase = "uppercase";
 ---
 
 <Layout
@@ -36,7 +40,7 @@ const goal = 3;
 	</ul>
 	<p>Mis habilidades son:</p>
 	<ul>
-		{skills.map((skill) => <li>{skill}</li>)}
+		{skills.map((skill) => <li class="skill">{skill}</li>)}
 	</ul>
 	<h1>{pageTitle}</h1>
 	
@@ -51,15 +55,23 @@ const goal = 3;
 		Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
 		labore et dolore magna aliqua. Vitae ultricies leo integer malesuada nunc vel risus commodo
 		viverra. Adipiscing enim eu turpis egestas pretium. Euismod elementum nisi quis eleifend quam
-		adipiscing. In hac habitasse platea dictumst vestibulum. Sagittis purus sit amet volutpat. Netus
-		et malesuada fames ac turpis egestas. Eget magna fermentum iaculis eu non diam phasellus
-		vestibulum lorem. Varius sit amet mattis vulputate enim. Habitasse platea dictumst quisque
-		sagittis. Integer quis auctor elit sed vulputate mi. Dictumst quisque sagittis purus sit amet.
+		adipiscing.
 	</p>
 
 	{happy && <p>¡Estoy feliz de aprender Astro!</p>}
 	{finished && <p>¡He terminado este tutorial!</p>}
 	{goal === 3 ? <p>Mi objetivo es terminar en 3 días.</p> : <p>Mi objetivo no son 3 días.</p>}
 
+	<style define:vars={{skillColor, fontWeight, textCase}}>
+		h1 {
+			color: purple;
+			font-size: : 4rem;
+		}
+		.skill {
+			color: var(--skillColor);
+			font-weight: var(--fontWeight);
+			text-transform: var(--textCase);
+		}
+	</style>
 </main>
 </Layout>
