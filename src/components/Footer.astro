@@ -1,8 +1,12 @@
 ---
 const today = new Date();
+import Social from "./Social.astro";
 ---
 
 <footer>
+	<Social plataform="twitter" username="astrodotbuild" />
+	<Social plataform="github" username="withastro" />
+	<Social plataform="youtube" username="astrodotbuild" />
 	&copy; {today.getFullYear()} Your name here. All rights reserved.
 	<div class="social-links">
 		<a href="https://m.webtoo.ls/@astro" target="_blank">
@@ -41,6 +45,9 @@ const today = new Date();
 </footer>
 <style>
 	footer {
+		display: flex;
+		gap: 1rem;
+		margin-top: 5rem;
 		padding: 2em 1em 6em 1em;
 		background: linear-gradient(var(--gray-gradient)) no-repeat;
 		color: rgb(var(--gray));
