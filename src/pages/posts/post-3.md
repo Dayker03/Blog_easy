@@ -1,4 +1,5 @@
 ---
+layout: ../../layouts/MarkdownPostLayout.astro 
 title: Mi tercera publicación en el blog
 author: Alumno de Astro
 pubDate: 2025-03-05
