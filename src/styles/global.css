@@ -5,6 +5,8 @@
  */
 
 :root {
+	--dark-bg-color: #BFBFBF;
+	--dark-text-color: #fff;
 	--accent: #2337ff;
 	--accent-dark: #000d8a;
 	--black: 15, 18, 25;
@@ -168,4 +170,13 @@ hr {
 
 .hamburguer	{
 	display: none;
+}
+
+html.dark {
+	background-color: var(--dark-bg-color);
+	color: var(--dark-text-color);
+}
+
+html-dark .nav-links a {
+	color: var(--dark-text-color);
 }
